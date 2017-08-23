@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.10
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A63D797B-CD2D-4DF1-8318-827342E175BA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{E511E941-97BD-4A45-93DE-D9F9B43C0B6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeixinSDK.Work", "src\WeixinSDK.Work\WeixinSDK.Work.csproj", "{DA5E6286-B706-4150-898D-9FF21CD58933}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TencentSDK.Exmail", "src\TencentSDK.Exmail\TencentSDK.Exmail.csproj", "{205D70FF-A11E-4166-9A4B-EDBE9C8047DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeixinSDK.WorkTests", "test\WeixinSDK.WorkTests\WeixinSDK.WorkTests.csproj", "{0FF6521A-A6FD-4C79-A1BC-1D2B647BF012}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TencentSDK.ExmailTests", "test\TencentSDK.ExmailTests\TencentSDK.ExmailTests.csproj", "{04AFF3ED-097A-4632-8FA2-002C4F5D1603}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8CB560DE-F3A0-45D8-8248-99A2191FE558}"
+	ProjectSection(SolutionItems) = preProject
+		buildPackage.cmd = buildPackage.cmd
+		README.md = README.md
+		TencentSDK.Exmail.nuspec = TencentSDK.Exmail.nuspec
+		WeixinSDK.Work.nuspec = WeixinSDK.Work.nuspec
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA5E6286-B706-4150-898D-9FF21CD58933}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA5E6286-B706-4150-898D-9FF21CD58933}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA5E6286-B706-4150-898D-9FF21CD58933}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA5E6286-B706-4150-898D-9FF21CD58933}.Release|Any CPU.Build.0 = Release|Any CPU
+		{205D70FF-A11E-4166-9A4B-EDBE9C8047DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{205D70FF-A11E-4166-9A4B-EDBE9C8047DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{205D70FF-A11E-4166-9A4B-EDBE9C8047DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{205D70FF-A11E-4166-9A4B-EDBE9C8047DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FF6521A-A6FD-4C79-A1BC-1D2B647BF012}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FF6521A-A6FD-4C79-A1BC-1D2B647BF012}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FF6521A-A6FD-4C79-A1BC-1D2B647BF012}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FF6521A-A6FD-4C79-A1BC-1D2B647BF012}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04AFF3ED-097A-4632-8FA2-002C4F5D1603}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04AFF3ED-097A-4632-8FA2-002C4F5D1603}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04AFF3ED-097A-4632-8FA2-002C4F5D1603}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04AFF3ED-097A-4632-8FA2-002C4F5D1603}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DA5E6286-B706-4150-898D-9FF21CD58933} = {A63D797B-CD2D-4DF1-8318-827342E175BA}
+		{205D70FF-A11E-4166-9A4B-EDBE9C8047DD} = {A63D797B-CD2D-4DF1-8318-827342E175BA}
+		{0FF6521A-A6FD-4C79-A1BC-1D2B647BF012} = {E511E941-97BD-4A45-93DE-D9F9B43C0B6E}
+		{04AFF3ED-097A-4632-8FA2-002C4F5D1603} = {E511E941-97BD-4A45-93DE-D9F9B43C0B6E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B347BACB-F0C7-4B5A-A84D-0F20900BD6BC}
+	EndGlobalSection
+EndGlobal
