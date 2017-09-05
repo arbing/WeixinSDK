@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata schemaVersion="2">
     <id>TencentSDK.Exmail</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <title>TencentSDK.Exmail</title>
     <authors>arbing</authors>
     <owners>arbing</owners>
@@ -13,6 +13,7 @@
     <description>腾讯企业邮API SDK</description>
     <summary>腾讯企业邮API SDK</summary>
     <releaseNotes>
+      1.0.1 Newtonsoft.Json 降级回6.0.8
     </releaseNotes>
     <tags>Tencent Exmail ExmailSDK API-SDK</tags>
   <dependencies>
