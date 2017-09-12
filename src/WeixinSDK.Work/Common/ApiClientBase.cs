@@ -31,6 +31,11 @@ namespace WeixinSDK.Work.Common
         public AccessTokenResult AccessTokenResult { get; private set; }
 
         /// <summary>
+        /// 应用的JsApi凭证
+        /// </summary>
+        public JsApiTicketResult JsApiTicketResult { get; private set; }
+
+        /// <summary>
         /// 初始化企业微信API客户端
         /// </summary>
         /// <param name="corpId">企业ID</param>
@@ -55,6 +60,37 @@ namespace WeixinSDK.Work.Common
             {
                 return AccessTokenResult;
             }
+        }
+
+        /// <summary>
+        /// 获取JsApi凭证
+        /// </summary>
+        public JsApiTicketResult GetJsApiTicket()
+        {
+            if (JsApiTicketResult == null || JsApiTicketResult.ExpireTime <= DateTime.Now)
+            {
+                var accessToken = GetToken();
+                var result = GetAsJson<JsApiTicketResult>("/get_jsapi_ticket", new { accessToken.access_token });
+                return result;
+            }
+            else
+            {
+                return JsApiTicketResult;
+            }
+        }
+
+        /// <summary>
+        /// 创建JSSDK信息包
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
+        public JsSdkUiPackage GetJsSdkUiPackage(string url)
+        {
+            var jsApiTicket = GetJsApiTicket();
+            var nonceStr = JSSDKHelper.GetNoncestr();
+            var timestamp = JSSDKHelper.GetTimestamp();
+            var signature = JSSDKHelper.GetSignature(jsApiTicket.ticket, nonceStr, timestamp, url);
+            return new JsSdkUiPackage(appId: CorpId, timestamp: timestamp.ToString(), nonceStr: nonceStr, signature: signature);
         }
 
         /// <summary>

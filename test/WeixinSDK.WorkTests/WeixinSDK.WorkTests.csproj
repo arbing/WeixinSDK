@@ -63,6 +63,7 @@
     <Compile Include="Apis\CheckInApiTests.cs" />
     <Compile Include="Apis\DepartmentApiTests.cs" />
     <Compile Include="Apis\UserApiTests.cs" />
+    <Compile Include="Common\ApiClientBaseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -74,16 +75,13 @@
   <ItemGroup>
     <Content Include="App.config">
       <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="App.Debug.config">
       <DependentUpon>App.config</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App.Release.config">
       <DependentUpon>App.config</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>

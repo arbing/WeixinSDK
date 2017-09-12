@@ -55,13 +55,17 @@
     <Compile Include="Common\ApiBase.cs" />
     <Compile Include="Common\ApiClientBase.cs" />
     <Compile Include="Common\DateTimeExtensions.cs" />
+    <Compile Include="Common\EncryptHelper.cs" />
+    <Compile Include="Common\JSSDKHelper.cs" />
     <Compile Include="Common\RequestClient.cs" />
     <Compile Include="Enums\ReturnCode.cs" />
     <Compile Include="Models\CheckIn\GetCheckInDataInfo.cs" />
     <Compile Include="Models\CheckIn\GetCheckInDataRequest.cs" />
     <Compile Include="Models\CheckIn\GetCheckInDataResult.cs" />
     <Compile Include="Models\Common\AccessTokenResult.cs" />
+    <Compile Include="Models\Common\JsApiTicketResult.cs" />
     <Compile Include="Models\Common\JsonResult.cs" />
+    <Compile Include="Models\Common\JsSdkUiPackage.cs" />
     <Compile Include="Models\Department\CreateDepartmentRequest.cs" />
     <Compile Include="Models\Department\CreateDepartmentResult.cs" />
     <Compile Include="Models\Department\ListDepartmentInfo.cs" />
