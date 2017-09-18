@@ -27,7 +27,7 @@ namespace WeixinSDK.WorkTests.Apis
         [TestMethod()]
         public void GetCheckInDataTest()
         {
-            var result = _client.CheckInApi.GetCheckInData(new GetCheckInDataRequest()
+            var result = _client.CheckIn.GetCheckInData(new GetCheckInDataRequest()
             {
                 opencheckindatatype = 3,
                 starttime = DateTime.Today.AddDays(-DateTime.Today.Day + 1).ToUnixTime(),

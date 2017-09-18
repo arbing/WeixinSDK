@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata schemaVersion="2">
     <id>WeixinSDK.Work</id>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <title>WeixinSDK.Work</title>
     <authors>arbing</authors>
     <owners>arbing</owners>
@@ -13,8 +13,9 @@
     <description>企业微信API SDK</description>
     <summary>企业微信API SDK</summary>
     <releaseNotes>
-      1.0.1 Newtonsoft.Json 降级回6.0.8
+      1.0.3 增加接口：发送消息
       1.0.2 增加接口：获取JsApi凭证
+      1.0.1 Newtonsoft.Json 降级回6.0.8
     </releaseNotes>
     <tags>Weixin Wechat WeixinSDK API-SDK</tags>
   <dependencies>

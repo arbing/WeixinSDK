@@ -51,13 +51,16 @@
   <ItemGroup>
     <Compile Include="Apis\CheckInApi.cs" />
     <Compile Include="Apis\DepartmentApi.cs" />
+    <Compile Include="Apis\MessageApi.cs" />
     <Compile Include="Apis\UserApi.cs" />
     <Compile Include="Common\ApiBase.cs" />
     <Compile Include="Common\ApiClientBase.cs" />
     <Compile Include="Common\DateTimeExtensions.cs" />
     <Compile Include="Common\EncryptHelper.cs" />
     <Compile Include="Common\JSSDKHelper.cs" />
+    <Compile Include="Common\ListExtensions.cs" />
     <Compile Include="Common\RequestClient.cs" />
+    <Compile Include="Common\StringExtensions.cs" />
     <Compile Include="Enums\ReturnCode.cs" />
     <Compile Include="Models\CheckIn\GetCheckInDataInfo.cs" />
     <Compile Include="Models\CheckIn\GetCheckInDataRequest.cs" />
@@ -71,6 +74,8 @@
     <Compile Include="Models\Department\ListDepartmentInfo.cs" />
     <Compile Include="Models\Department\ListDepartmentResult.cs" />
     <Compile Include="Models\Department\UpdateDepartmentRequest.cs" />
+    <Compile Include="Models\Message\SendMessageRequest.cs" />
+    <Compile Include="Models\Message\SendMessageResult.cs" />
     <Compile Include="Models\User\GetUserInfoResult.cs" />
     <Compile Include="Models\User\ListUserResult.cs" />
     <Compile Include="Models\User\SimpleListUserInfo.cs" />
@@ -84,5 +89,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

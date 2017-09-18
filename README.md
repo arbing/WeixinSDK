@@ -11,3 +11,12 @@
 [1.2]: https://www.nuget.org/packages/WeixinSDK.Work
 [2.1]: https://buildstats.info/nuget/TencentSDK.Exmail
 [2.2]: https://www.nuget.org/packages/TencentSDK.Exmail
+
+企业微信已完成接口
+----------------
+* 基础：获取 AccessToken
+* 基础：获取 JsApi 凭证
+* 基础：创建 JSSDK 信息包
+* 成员管理 User
+* 部门管理 Department
+* 打卡数据 CheckIn

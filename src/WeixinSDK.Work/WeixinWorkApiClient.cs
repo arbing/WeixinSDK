@@ -22,8 +22,12 @@ namespace WeixinSDK.Work
         /// <summary>
         /// 打卡数据接口
         /// </summary>
-        public CheckInApi CheckInApi { get; private set; }
+        public CheckInApi CheckIn { get; private set; }
 
+        /// <summary>
+        /// 消息推送接口
+        /// </summary>
+        public MessageApi Message { get; private set; }
 
         /// <summary>
         /// 初始化企业微信API客户端
@@ -33,6 +37,22 @@ namespace WeixinSDK.Work
         public WeixinWorkApiClient(string corpId, string corpSecret):base(corpId, corpSecret)
         {
             Initialize();
+        }
+
+        /// <summary>
+        /// 初始化企业微信API客户端
+        /// </summary>
+        /// <param name="corpId">企业ID</param>
+        /// <param name="agentId">企业应用的ID</param>
+        /// <param name="corpSecret">应用的凭证密钥</param>
+        public WeixinWorkApiClient(string corpId, string agentId, string corpSecret) : base(corpId, agentId, corpSecret)
+        {
+            Initialize();
+
+            if (AgentId <= 0)
+            {
+                throw new ArgumentNullException("AgentId");
+            }
         }
 
         /// <summary>
@@ -57,7 +77,8 @@ namespace WeixinSDK.Work
 
             User = new UserApi(this);
             Department = new DepartmentApi(this);
-            CheckInApi = new CheckInApi(this);
+            CheckIn = new CheckInApi(this);
+            Message = new MessageApi(this);
         }
     }
 }

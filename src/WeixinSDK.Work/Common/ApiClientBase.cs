@@ -21,6 +21,11 @@ namespace WeixinSDK.Work.Common
         public string CorpId { get; private set; }
 
         /// <summary>
+        /// 企业应用的ID
+        /// </summary>
+        public int AgentId { get; private set; }
+
+        /// <summary>
         /// 应用的凭证密钥
         /// </summary>
         public string CorpSecret { get; private set; }
@@ -47,13 +52,26 @@ namespace WeixinSDK.Work.Common
         }
 
         /// <summary>
+        /// 初始化企业微信API客户端
+        /// </summary>
+        /// <param name="corpId">企业ID</param>
+        /// <param name="agentId">企业应用的ID</param>
+        /// <param name="corpSecret">应用的凭证密钥</param>
+        public ApiClientBase(string corpId, string agentId, string corpSecret)
+        {
+            CorpId = corpId;
+            AgentId = Convert.ToInt32(agentId);
+            CorpSecret = corpSecret;
+        }
+
+        /// <summary>
         /// 获取AccessToken
         /// </summary>
         public AccessTokenResult GetToken()
         {
             if (AccessTokenResult == null || AccessTokenResult.ExpireTime <= DateTime.Now)
             {
-                var result = GetAsJson<AccessTokenResult>("/gettoken", new { corpid = CorpId, corpsecret = CorpSecret });
+                var result = GetAsJson<AccessTokenResult>("/gettoken", new {corpid = CorpId, corpsecret = CorpSecret});
                 return result;
             }
             else
@@ -70,7 +88,7 @@ namespace WeixinSDK.Work.Common
             if (JsApiTicketResult == null || JsApiTicketResult.ExpireTime <= DateTime.Now)
             {
                 var accessToken = GetToken();
-                var result = GetAsJson<JsApiTicketResult>("/get_jsapi_ticket", new { accessToken.access_token });
+                var result = GetAsJson<JsApiTicketResult>("/get_jsapi_ticket", new {accessToken.access_token});
                 return result;
             }
             else
@@ -90,7 +108,8 @@ namespace WeixinSDK.Work.Common
             var nonceStr = JSSDKHelper.GetNoncestr();
             var timestamp = JSSDKHelper.GetTimestamp();
             var signature = JSSDKHelper.GetSignature(jsApiTicket.ticket, nonceStr, timestamp, url);
-            return new JsSdkUiPackage(appId: CorpId, timestamp: timestamp.ToString(), nonceStr: nonceStr, signature: signature);
+            return new JsSdkUiPackage(appId: CorpId, timestamp: timestamp.ToString(), nonceStr: nonceStr,
+                signature: signature);
         }
 
         /// <summary>
