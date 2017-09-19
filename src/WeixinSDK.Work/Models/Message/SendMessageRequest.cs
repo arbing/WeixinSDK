@@ -1,49 +1,9 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 using WeixinSDK.Work.Common;
 
 namespace WeixinSDK.Work.Models.Message
 {
-    /// <summary>
-    /// 发送消息接收者参数类
-    /// </summary>
-    public class SendMessageParam
-    {
-        /// <summary>
-        /// 成员ID列表（消息接收者，多个接收者用‘|’分隔，最多支持1000个）。特殊情况：指定为@all，则向该企业应用的全部成员发送。
-        /// </summary>
-        public IList<string> UserIds { get; set; }
-
-        /// <summary>
-        /// 部门ID列表，多个接收者用‘|’分隔，最多支持100个。当touser为@all时忽略本参数
-        /// </summary>
-        public IList<long> PartyIds { get; set; }
-
-        /// <summary>
-        /// 标签ID列表，多个接收者用‘|’分隔，最多支持100个。当touser为@all时忽略本参数
-        /// </summary>
-        public IList<long> TagIds { get; set; }
-
-        /// <summary>
-        /// 表示是否是保密消息
-        /// </summary>
-        public bool safe { get; set; }
-
-        /// <summary>
-        /// 转换发送消息请求参数
-        /// </summary>
-        /// <returns></returns>
-        public SendMessageRequest ToRequest()
-        {
-            return new SendFileRequest()
-            {
-                touser = UserIds.ToIds(),
-                toparty = PartyIds.ToIds(),
-                totag = TagIds.ToIds(),
-                safe = safe ? 1 : 0,
-            };
-        }
-    }
-
     /// <summary>
     /// 发送消息请求参数类
     /// </summary>
@@ -52,17 +12,41 @@ namespace WeixinSDK.Work.Models.Message
         /// <summary>
         /// 成员ID列表（消息接收者，多个接收者用‘|’分隔，最多支持1000个）。特殊情况：指定为@all，则向该企业应用的全部成员发送。
         /// </summary>
-        public string touser { get; set; }
+        [JsonIgnore]
+        public IList<string> UserIds { get; set; }
 
         /// <summary>
         /// 部门ID列表，多个接收者用‘|’分隔，最多支持100个。当touser为@all时忽略本参数
         /// </summary>
-        public string toparty { get; set; }
+        [JsonIgnore]
+        public IList<long> PartyIds { get; set; }
 
         /// <summary>
         /// 标签ID列表，多个接收者用‘|’分隔，最多支持100个。当touser为@all时忽略本参数
         /// </summary>
-        public string totag { get; set; }
+        [JsonIgnore]
+        public IList<long> TagIds { get; set; }
+
+        /// <summary>
+        /// 表示是否是保密消息
+        /// </summary>
+        [JsonIgnore]
+        public bool IsSafe { get; set; }
+
+        /// <summary>
+        /// 成员ID列表（消息接收者，多个接收者用‘|’分隔，最多支持1000个）。特殊情况：指定为@all，则向该企业应用的全部成员发送。
+        /// </summary>
+        public string touser { get { return UserIds.ToIds(); } }
+
+        /// <summary>
+        /// 部门ID列表，多个接收者用‘|’分隔，最多支持100个。当touser为@all时忽略本参数
+        /// </summary>
+        public string toparty { get { return PartyIds.ToIds(); } }
+
+        /// <summary>
+        /// 标签ID列表，多个接收者用‘|’分隔，最多支持100个。当touser为@all时忽略本参数
+        /// </summary>
+        public string totag { get { return TagIds.ToIds(); } }
 
         /// <summary>
         /// 消息类型。必填
@@ -77,21 +61,7 @@ namespace WeixinSDK.Work.Models.Message
         /// <summary>
         /// 表示是否是保密消息，0表示否，1表示是，默认0
         /// </summary>
-        public int safe { get; set; }
-
-        /// <summary>
-        /// 请求参数拷贝方法
-        /// </summary>
-        /// <param name="src">拷贝源对象</param>
-        /// <param name="target">拷贝目标对象</param>
-        internal void CopyFrom(SendMessageRequest src, SendMessageRequest target)
-        {
-            target.touser = src.touser;
-            target.toparty = src.toparty;
-            target.totag = src.totag;
-            target.agentid = src.agentid;
-            target.safe = src.safe;
-        }
+        public int safe { get { return IsSafe ? 1 : 0; } }
     }
 
     /// <summary>
@@ -99,22 +69,6 @@ namespace WeixinSDK.Work.Models.Message
     /// </summary>
     public class SendTextRequest : SendMessageRequest
     {
-        /// <summary>
-        /// 初始化请求参数
-        /// </summary>
-        public SendTextRequest()
-        {
-        }
-
-        /// <summary>
-        /// 初始化请求参数
-        /// </summary>
-        /// <param name="request">发送消息请求参数</param>
-        public SendTextRequest(SendMessageRequest request)
-        {
-            CopyFrom(request, this);
-        }
-
         /// <summary>
         /// 消息类型。必填
         /// </summary>
@@ -150,15 +104,6 @@ namespace WeixinSDK.Work.Models.Message
         /// </summary>
         public SendImageRequest()
         {
-        }
-
-        /// <summary>
-        /// 初始化请求参数
-        /// </summary>
-        /// <param name="request">发送消息请求参数</param>
-        public SendImageRequest(SendMessageRequest request)
-        {
-            CopyFrom(request, this);
         }
 
         /// <summary>
@@ -199,15 +144,6 @@ namespace WeixinSDK.Work.Models.Message
         }
 
         /// <summary>
-        /// 初始化请求参数
-        /// </summary>
-        /// <param name="request">发送消息请求参数</param>
-        public SendVoiceRequest(SendMessageRequest request)
-        {
-            CopyFrom(request, this);
-        }
-
-        /// <summary>
         /// 消息类型。必填
         /// </summary>
         public string msgtype
@@ -231,15 +167,6 @@ namespace WeixinSDK.Work.Models.Message
         /// </summary>
         public SendVideoRequest()
         {
-        }
-
-        /// <summary>
-        /// 初始化请求参数
-        /// </summary>
-        /// <param name="request">发送消息请求参数</param>
-        public SendVideoRequest(SendMessageRequest request)
-        {
-            CopyFrom(request, this);
         }
 
         /// <summary>
@@ -285,15 +212,6 @@ namespace WeixinSDK.Work.Models.Message
         }
 
         /// <summary>
-        /// 初始化请求参数
-        /// </summary>
-        /// <param name="request">发送消息请求参数</param>
-        public SendFileRequest(SendMessageRequest request)
-        {
-            CopyFrom(request, this);
-        }
-
-        /// <summary>
         /// 消息类型。必填
         /// </summary>
         public string msgtype
@@ -317,15 +235,6 @@ namespace WeixinSDK.Work.Models.Message
         /// </summary>
         public SendTextCardRequest()
         {
-        }
-
-        /// <summary>
-        /// 初始化请求参数
-        /// </summary>
-        /// <param name="request">发送消息请求参数</param>
-        public SendTextCardRequest(SendMessageRequest request)
-        {
-            CopyFrom(request, this);
         }
 
         /// <summary>
@@ -378,15 +287,6 @@ namespace WeixinSDK.Work.Models.Message
         /// </summary>
         public SendNewsRequest()
         {
-        }
-
-        /// <summary>
-        /// 初始化请求参数
-        /// </summary>
-        /// <param name="request">发送消息请求参数</param>
-        public SendNewsRequest(SendMessageRequest request)
-        {
-            CopyFrom(request, this);
         }
 
         /// <summary>
@@ -455,15 +355,6 @@ namespace WeixinSDK.Work.Models.Message
         /// </summary>
         public SendMpNewsRequest()
         {
-        }
-
-        /// <summary>
-        /// 初始化请求参数
-        /// </summary>
-        /// <param name="request">发送消息请求参数</param>
-        public SendMpNewsRequest(SendMessageRequest request)
-        {
-            CopyFrom(request, this);
         }
 
         /// <summary>

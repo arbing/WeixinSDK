@@ -62,6 +62,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Apis\AgentTests.cs" />
     <Compile Include="Apis\CheckInApiTests.cs" />
     <Compile Include="Apis\DepartmentApiTests.cs" />
     <Compile Include="Apis\MessageApiTests.cs" />

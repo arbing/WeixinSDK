@@ -30,6 +30,11 @@ namespace WeixinSDK.Work
         public MessageApi Message { get; private set; }
 
         /// <summary>
+        /// 应用管理接口
+        /// </summary>
+        public AgentApi Agent { get; private set; }
+
+        /// <summary>
         /// 初始化企业微信API客户端
         /// </summary>
         /// <param name="corpId">企业ID</param>
@@ -79,6 +84,7 @@ namespace WeixinSDK.Work
             Department = new DepartmentApi(this);
             CheckIn = new CheckInApi(this);
             Message = new MessageApi(this);
+            Agent = new AgentApi(this);
         }
     }
 }

@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Apis\AgentApi.cs" />
     <Compile Include="Apis\CheckInApi.cs" />
     <Compile Include="Apis\DepartmentApi.cs" />
     <Compile Include="Apis\MessageApi.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Common\RequestClient.cs" />
     <Compile Include="Common\StringExtensions.cs" />
     <Compile Include="Enums\ReturnCode.cs" />
+    <Compile Include="Models\Agent\GetAgentResult.cs" />
     <Compile Include="Models\CheckIn\GetCheckInDataInfo.cs" />
     <Compile Include="Models\CheckIn\GetCheckInDataRequest.cs" />
     <Compile Include="Models\CheckIn\GetCheckInDataResult.cs" />

@@ -18,118 +18,127 @@ namespace WeixinSDK.Work.Apis
 
         /// <summary>
         /// 发送文本消息
+        /// 文档：https://work.weixin.qq.com/api/doc#10167
         /// </summary>
-        /// <param name="recipient">接收者参数</param>
-        /// <param name="message">文本内容</param>
+        /// <param name="request">请求参数</param>
         /// <returns>返回结果</returns>
-        public SendMessageResult SendText(SendMessageParam recipient, TextMessageInfo message)
+        public SendMessageResult SendText(SendTextRequest request)
         {
-            var request = new SendTextRequest(recipient.ToRequest());
-            request.agentid = Client.AgentId;
-            request.text = message;
+            if (request.agentid == 0)
+            {
+                request.agentid = Client.AgentId;
+            }
+
             return Send(request);
         }
 
         /// <summary>
         /// 发送图片消息
+        /// 文档：https://work.weixin.qq.com/api/doc#10167
         /// </summary>
-        /// <param name="recipient">接收者参数</param>
-        /// <param name="message">图片媒体文件</param>
+        /// <param name="request">请求参数</param>
         /// <returns>返回结果</returns>
-        public SendMessageResult SendImage(SendMessageParam recipient, MediaMessageInfo message)
+        public SendMessageResult SendImage(SendImageRequest request)
         {
-            var request = new SendImageRequest(recipient.ToRequest());
-            request.agentid = Client.AgentId;
-            request.image = message;
+            if (request.agentid == 0)
+            {
+                request.agentid = Client.AgentId;
+            }
             return Send(request);
         }
 
         /// <summary>
         /// 发送语音消息
         /// </summary>
-        /// <param name="recipient">接收者参数</param>
-        /// <param name="message">语音媒体文件</param>
+        /// <param name="request">请求参数</param>
         /// <returns>返回结果</returns>
-        public SendMessageResult SendVoice(SendMessageParam recipient, MediaMessageInfo message)
+        public SendMessageResult SendVoice(SendVoiceRequest request)
         {
-            var request = new SendVoiceRequest(recipient.ToRequest());
-            request.agentid = Client.AgentId;
-            request.voice = message;
+            if (request.agentid == 0)
+            {
+                request.agentid = Client.AgentId;
+            }
             return Send(request);
         }
 
         /// <summary>
         /// 发送视频消息
+        /// 文档：https://work.weixin.qq.com/api/doc#10167
         /// </summary>
-        /// <param name="recipient">接收者参数</param>
-        /// <param name="message">视频媒体文件</param>
+        /// <param name="request">请求参数</param>
         /// <returns>返回结果</returns>
-        public SendMessageResult SendVideo(SendMessageParam recipient, VideoMessageInfo message)
+        public SendMessageResult SendVideo(SendVideoRequest request)
         {
-            var request = new SendVideoRequest(recipient.ToRequest());
-            request.agentid = Client.AgentId;
-            request.video = message;
+            if (request.agentid == 0)
+            {
+                request.agentid = Client.AgentId;
+            }
             return Send(request);
         }
 
         /// <summary>
         /// 发送文件消息
+        /// 文档：https://work.weixin.qq.com/api/doc#10167
         /// </summary>
-        /// <param name="recipient">接收者参数</param>
-        /// <param name="message">文件媒体文件</param>
+        /// <param name="request">请求参数</param>
         /// <returns>返回结果</returns>
-        public SendMessageResult SendFile(SendMessageParam recipient, MediaMessageInfo message)
+        public SendMessageResult SendFile(SendFileRequest request)
         {
-            var request = new SendFileRequest(recipient.ToRequest());
-            request.agentid = Client.AgentId;
-            request.file = message;
+            if (request.agentid == 0)
+            {
+                request.agentid = Client.AgentId;
+            }
             return Send(request);
         }
 
         /// <summary>
         /// 发送文本卡片消息
+        /// 文档：https://work.weixin.qq.com/api/doc#10167
         /// </summary>
-        /// <param name="recipient">接收者参数</param>
-        /// <param name="message">文本卡片消息</param>
+        /// <param name="request">请求参数</param>
         /// <returns>返回结果</returns>
-        public SendMessageResult SendTextCard(SendMessageParam recipient, TextCardMessageInfo message)
+        public SendMessageResult SendTextCard(SendTextCardRequest request)
         {
-            var request = new SendTextCardRequest(recipient.ToRequest());
-            request.agentid = Client.AgentId;
-            request.textcard = message;
+            if (request.agentid == 0)
+            {
+                request.agentid = Client.AgentId;
+            }
             return Send(request);
         }
 
         /// <summary>
         /// 发送图文消息
+        /// 文档：https://work.weixin.qq.com/api/doc#10167
         /// </summary>
-        /// <param name="recipient">接收者参数</param>
-        /// <param name="message">图文消息</param>
+        /// <param name="request">请求参数</param>
         /// <returns>返回结果</returns>
-        public SendMessageResult SendNews(SendMessageParam recipient, NewsMessageInfo message)
+        public SendMessageResult SendNews(SendNewsRequest request)
         {
-            var request = new SendNewsRequest(recipient.ToRequest());
-            request.agentid = Client.AgentId;
-            request.news = message;
+            if (request.agentid == 0)
+            {
+                request.agentid = Client.AgentId;
+            }
             return Send(request);
         }
 
         /// <summary>
         /// 发送图文消息（mpnews）
+        /// 文档：https://work.weixin.qq.com/api/doc#10167
         /// </summary>
-        /// <param name="recipient">接收者参数</param>
-        /// <param name="message">图文消息（mpnews）</param>
+        /// <param name="request">请求参数</param>
         /// <returns>返回结果</returns>
-        public SendMessageResult SendMpNews(SendMessageParam recipient, MpNewsMessageInfo message)
+        public SendMessageResult SendMpNews(SendMpNewsRequest request)
         {
-            var request = new SendMpNewsRequest(recipient.ToRequest());
-            request.agentid = Client.AgentId;
-            request.mpnews = message;
+            if (request.agentid == 0)
+            {
+                request.agentid = Client.AgentId;
+            }
             return Send(request);
         }
 
         /// <summary>
         /// 发送文本、图片、视频、文件、图文等类型消息
+        /// 文档：https://work.weixin.qq.com/api/doc#10167
         /// </summary>
         /// <param name="request">请求参数</param>
         /// <returns>返回结果</returns>
