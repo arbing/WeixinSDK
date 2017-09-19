@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using WeixinSDK.Work.Common;
 
 namespace WeixinSDK.Work.Models.CheckIn
 {
@@ -31,6 +33,11 @@ namespace WeixinSDK.Work.Models.CheckIn
         /// 打卡时间。UTC时间戳
         /// </summary>
         public int checkin_time { get; set; }
+
+        /// <summary>
+        /// 打卡时间。本地时间
+        /// </summary>
+        public DateTime CheckinDateTime { get { return checkin_time.FromUnixTime(); } }
 
         /// <summary>
         /// 打卡地点title

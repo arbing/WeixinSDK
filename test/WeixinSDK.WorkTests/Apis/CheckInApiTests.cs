@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using WeixinSDK.Work;
-using WeixinSDK.Work.Common;
 using WeixinSDK.Work.Enums;
 using WeixinSDK.Work.Models.CheckIn;
 
@@ -30,8 +29,8 @@ namespace WeixinSDK.WorkTests.Apis
             var result = _client.CheckIn.GetCheckInData(new GetCheckInDataRequest()
             {
                 opencheckindatatype = 3,
-                starttime = DateTime.Today.AddDays(-DateTime.Today.Day + 1).ToUnixTime(),
-                endtime = DateTime.Today.AddDays(-DateTime.Today.Day + 1).AddMonths(1).ToUnixTime(),
+                StartDateTime = DateTime.Today.AddDays(-DateTime.Today.Day + 1),
+                EndDateTime = DateTime.Today.AddDays(-DateTime.Today.Day + 1).AddMonths(1),
                 useridlist = new List<string>() {"test"}
             });
 

@@ -5,7 +5,7 @@ namespace WeixinSDK.Work.Common
     /// <summary>
     /// 日期时间扩展方法
     /// </summary>
-    public static class DateTimeExtensions
+    internal static class DateTimeExtensions
     {
         /// <summary>
         /// Unix起始时间
