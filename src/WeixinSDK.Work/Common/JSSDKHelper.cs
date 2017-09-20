@@ -3,7 +3,7 @@ using System.Text;
 
 namespace WeixinSDK.Work.Common
 {
-    public class JSSDKHelper
+    internal class JSSDKHelper
     {
         /// <summary>
         /// 获取随机字符串

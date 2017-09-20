@@ -11,6 +11,11 @@ namespace WeixinSDK.Work.Common
     public class ApiClientBase : RequestClient
     {
         /// <summary>
+        /// 企业微信API返回错误处理事件
+        /// </summary>
+        public event ApiErrorHandler ApiError;
+
+        /// <summary>
         /// 基地址
         /// </summary>
         public const string BaseUrl = "https://qyapi.weixin.qq.com/cgi-bin";
@@ -130,10 +135,23 @@ namespace WeixinSDK.Work.Common
                 if (errorResult.errcode != ReturnCode.请求成功)
                 {
                     //发生错误
-                    //throw new ErrorResponseException(
-                    //    string.Format("微信请求发生错误！错误代码：{0}({1})，说明：{2}",
-                    //        (int)errorResult.errcode, errorResult.errcode.ToString(), errorResult.errmsg), null,
-                    //    errorResult, url);
+                    if (ApiError != null)
+                    {
+                        var msg = string.Format("企业微信接口请求返回错误，err：{0}，request：{1}",
+                            JsonConvert.SerializeObject(new
+                            {
+                                errorResult.errcode,
+                                errtxt = errorResult.errcode.ToString(),
+                                errorResult.errmsg
+                            }),
+                            JsonConvert.SerializeObject(new
+                            {
+                                Method = HttpMethod.GET.ToString(),
+                                Url = url,
+                                Query = queryObj,
+                            }));
+                        ApiError(new Exception(msg));
+                    }
                 }
             }
 
@@ -161,10 +179,24 @@ namespace WeixinSDK.Work.Common
                 if (errorResult.errcode != ReturnCode.请求成功)
                 {
                     //发生错误
-                    //throw new ErrorResponseException(
-                    //    string.Format("微信请求发生错误！错误代码：{0}({1})，说明：{2}",
-                    //        (int)errorResult.errcode, errorResult.errcode.ToString(), errorResult.errmsg), null,
-                    //    errorResult, url);
+                    if (ApiError != null)
+                    {
+                        var msg = string.Format("企业微信接口请求返回错误，err：{0}，request：{1}",
+                            JsonConvert.SerializeObject(new
+                            {
+                                errorResult.errcode,
+                                errtxt = errorResult.errcode.ToString(),
+                                errorResult.errmsg
+                            }),
+                            JsonConvert.SerializeObject(new
+                            {
+                                Method = HttpMethod.POST.ToString(),
+                                Url = url,
+                                Query = queryObj,
+                                Body = bodyObj
+                            }));
+                        ApiError(new Exception(msg));
+                    }
                 }
             }
 

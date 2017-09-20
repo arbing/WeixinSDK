@@ -12,16 +12,23 @@ using WeixinSDK.Work.Models.Common;
 namespace WeixinSDK.Work.Common
 {
     /// <summary>
+    /// HTTP请求信息和响应信息处理
+    /// </summary>
+    /// <param name="requestInfo">HTTP请求信息和响应信息</param>
+    /// <param name="type">信息类型：Request、Response、Error</param>
+    public delegate void DumpRequestHandler(object requestInfo, string type = "");
+
+    /// <summary>
+    /// 企业微信API返回错误处理
+    /// </summary>
+    /// <param name="ex">错误信息</param>
+    public delegate void ApiErrorHandler(Exception ex);
+
+    /// <summary>
     /// HTTP请求方法
     /// </summary>
     public class RequestClient
     {
-        /// <summary>
-        /// HTTP请求信息和响应信息处理
-        /// </summary>
-        /// <param name="requestInfo"></param>
-        public delegate void DumpRequestHandler(object requestInfo);
-
         /// <summary>
         /// HTTP请求信息和响应信息处理事件
         /// </summary>
@@ -106,13 +113,13 @@ namespace WeixinSDK.Work.Common
                 {
                     DumpRequest(new
                     {
-                        RequestId = requestId,
                         Type = "Request",
+                        Id = requestId,
                         Uri = request.RequestUri,
                         request.Method,
                         request.ContentType,
                         Content = body
-                    });
+                    }, "Request");
                 }
 
                 response = (HttpWebResponse) request.GetResponse();
@@ -125,13 +132,12 @@ namespace WeixinSDK.Work.Common
                 {
                     DumpRequest(new
                     {
-                        RequestId = requestId,
                         Type = "Response",
-                        Uri = response.ResponseUri,
-                        response.Method,
+                        Id = requestId,
+                        Uri = request.RequestUri,
                         response.ContentType,
                         Content = responseTxt
-                    });
+                    }, "Response");
                 }
             }
             catch (WebException webEx)
@@ -141,12 +147,12 @@ namespace WeixinSDK.Work.Common
                 {
                     DumpRequest(new
                     {
-                        RequestId = requestId,
                         Type = "Error",
+                        Id = requestId,
                         Uri = request.RequestUri,
                         Status = webEx.Status.ToString(),
                         webEx.Message,
-                    });
+                    }, "Error");
                 }
 
                 var res = new JsonResult {errcode = ReturnCode.系统繁忙, errmsg = webEx.Message};

@@ -7,7 +7,7 @@ namespace WeixinSDK.Work.Common
     /// <summary>
     /// 签名加密类
     /// </summary>
-    public class EncryptHelper
+    internal class EncryptHelper
     {
         /// <summary>
         /// 获取大写的MD5签名结果
