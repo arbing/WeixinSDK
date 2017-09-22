@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata schemaVersion="2">
     <id>WeixinSDK.Work</id>
-    <version>1.0.6</version>
+    <version>1.0.7</version>
     <title>WeixinSDK.Work</title>
     <authors>arbing</authors>
     <owners>arbing</owners>
@@ -13,6 +13,7 @@
     <description>企业微信API SDK</description>
     <summary>企业微信API SDK</summary>
     <releaseNotes>
+      1.0.7 浏览器公共方法：判断是否在微信内置浏览器中
       1.0.6 暴露两个事件：DumpRequest，用于处理HTTP请求信息和响应信息输出；ApiError，用于处理API返回错误
       1.0.5 优化打卡接口参数和返回值中的时间类型
       1.0.4 增加接口：获取应用
