@@ -16,7 +16,7 @@ namespace WeixinSDK.Work.Apis.Tests
         {
             _client = new WeixinWorkApiClient(
                 ConfigurationManager.AppSettings["WeixinWork_CorpId"],
-                ConfigurationManager.AppSettings["WeixinWork_AgentId"],
+                Convert.ToInt32(ConfigurationManager.AppSettings["WeixinWork_AgentId"]),
                 ConfigurationManager.AppSettings["WeixinWork_CorpSecret"]);
             _client.DumpRequest += (info, type) => { Console.WriteLine(JsonConvert.SerializeObject(info)); };
         }

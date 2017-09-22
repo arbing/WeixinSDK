@@ -50,7 +50,7 @@ namespace WeixinSDK.Work
         /// <param name="corpId">企业ID</param>
         /// <param name="agentId">企业应用的ID</param>
         /// <param name="corpSecret">应用的凭证密钥</param>
-        public WeixinWorkApiClient(string corpId, string agentId, string corpSecret) : base(corpId, agentId, corpSecret)
+        public WeixinWorkApiClient(string corpId, int agentId, string corpSecret) : base(corpId, agentId, corpSecret)
         {
             Initialize();
 

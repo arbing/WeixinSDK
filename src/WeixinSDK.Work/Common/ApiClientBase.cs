@@ -62,10 +62,10 @@ namespace WeixinSDK.Work.Common
         /// <param name="corpId">企业ID</param>
         /// <param name="agentId">企业应用的ID</param>
         /// <param name="corpSecret">应用的凭证密钥</param>
-        public ApiClientBase(string corpId, string agentId, string corpSecret)
+        public ApiClientBase(string corpId, int agentId, string corpSecret)
         {
             CorpId = corpId;
-            AgentId = Convert.ToInt32(agentId);
+            AgentId = agentId;
             CorpSecret = corpSecret;
         }
 
