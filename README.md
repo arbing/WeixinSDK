@@ -19,5 +19,6 @@
 * 基础：创建 JSSDK 信息包
 * 成员管理 User
 * 部门管理 Department
+* 标签管理 Tag
 * 应用管理 Agent
 * 打卡数据 CheckIn
