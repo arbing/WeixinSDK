@@ -66,6 +66,7 @@
     <Compile Include="Apis\CheckInApiTests.cs" />
     <Compile Include="Apis\DepartmentApiTests.cs" />
     <Compile Include="Apis\MessageApiTests.cs" />
+    <Compile Include="Apis\TagApiTests.cs" />
     <Compile Include="Apis\UserApiTests.cs" />
     <Compile Include="Common\ApiClientBaseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

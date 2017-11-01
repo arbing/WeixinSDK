@@ -20,6 +20,11 @@ namespace WeixinSDK.Work
         public DepartmentApi Department { get; private set; }
 
         /// <summary>
+        /// 标签管理接口
+        /// </summary>
+        public TagApi Tag { get; private set; }
+
+        /// <summary>
         /// 打卡数据接口
         /// </summary>
         public CheckInApi CheckIn { get; private set; }
@@ -82,6 +87,7 @@ namespace WeixinSDK.Work
 
             User = new UserApi(this);
             Department = new DepartmentApi(this);
+            Tag = new TagApi(this);
             CheckIn = new CheckInApi(this);
             Message = new MessageApi(this);
             Agent = new AgentApi(this);
