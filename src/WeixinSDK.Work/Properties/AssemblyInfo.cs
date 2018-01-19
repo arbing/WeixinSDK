@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
 [assembly: AssemblyTitle("WeixinSDK.Work")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("企业微信API SDK")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("WeixinSDK.Work")]

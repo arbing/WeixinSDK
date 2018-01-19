@@ -5,3 +5,6 @@ MSBuild src\WeixinSDK.Work\WeixinSDK.Work.csproj /t:Clean;Rebuild /p:Configurati
 
 MSBuild src\TencentSDK.Exmail\TencentSDK.Exmail.csproj /t:Clean;Rebuild /p:Configuration=Release
 .nuget\nuget.exe pack TencentSDK.Exmail.nuspec /o releases
+
+MSBuild src\TencentSDK.YoutuYun\TencentSDK.YoutuYun.csproj /t:Clean;Rebuild /p:Configuration=Release
+.nuget\nuget.exe pack TencentSDK.YoutuYun.nuspec /o releases
