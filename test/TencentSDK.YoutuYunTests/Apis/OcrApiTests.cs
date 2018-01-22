@@ -29,7 +29,7 @@ namespace TencentSDK.YoutuYun.Apis.Tests
         }
 
         [TestMethod()]
-        public void GeneralOcrTest()
+        public void GeneralOcrTest_Url()
         {
             var result = _client.Ocr.GeneralOcr(new GeneralOcrRequest()
             {
@@ -38,6 +38,21 @@ namespace TencentSDK.YoutuYun.Apis.Tests
 
             Assert.IsNotNull(result);
             Assert.AreEqual(ReturnCode.请求成功, result.errorcode);
+            Console.WriteLine(result.errormsg);
+        }
+
+
+        [TestMethod()]
+        public void GeneralOcrTest_UrlGif()
+        {
+            var result = _client.Ocr.GeneralOcr(new GeneralOcrRequest()
+            {
+                url = @"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=139136134,862152765&fm=27&gp=0.jpg"
+            });
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(ReturnCode.图片解码失败, result.errorcode);
+            Console.WriteLine(result.errormsg);
         }
     }
 }

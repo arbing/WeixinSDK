@@ -2,6 +2,7 @@
 using System.IO;
 using System.Security.Cryptography;
 using Newtonsoft.Json;
+using TencentSDK.YoutuYun.Enums;
 using TencentSDK.YoutuYun.Models.Common;
 
 namespace TencentSDK.YoutuYun.Common
@@ -135,6 +136,11 @@ namespace TencentSDK.YoutuYun.Common
 
             T result = JsonConvert.DeserializeObject<T>(returnText);
 
+            // 错误码替换成错误描述
+            if (ErrorMsgs.Map.ContainsKey(result.errormsg))
+            {
+                result.errormsg = ErrorMsgs.Map[result.errormsg];
+            }
             return result;
         }
 
@@ -151,6 +157,12 @@ namespace TencentSDK.YoutuYun.Common
             string returnText = Send(url, queryObj, bodyObj, GetAuthorization().SignStr, HttpMethod.POST);
 
             T result = JsonConvert.DeserializeObject<T>(returnText);
+
+            // 错误码替换成错误描述
+            if (ErrorMsgs.Map.ContainsKey(result.errormsg))
+            {
+                result.errormsg = ErrorMsgs.Map[result.errormsg];
+            }
 
             return result;
         }

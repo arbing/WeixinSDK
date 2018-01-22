@@ -54,6 +54,7 @@
     <Compile Include="Common\DateTimeExtensions.cs" />
     <Compile Include="Common\ImageUtils.cs" />
     <Compile Include="Common\RequestClient.cs" />
+    <Compile Include="Enums\ErrorMsgMap.cs" />
     <Compile Include="Enums\ReturnCode.cs" />
     <Compile Include="Models\Common\AuthorizationResult.cs" />
     <Compile Include="Models\Common\JsonResult.cs" />

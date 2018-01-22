@@ -1,0 +1,108 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace TencentSDK.YoutuYun.Enums
+{
+    /// <summary>
+    /// API错误说明与含义
+    /// </summary>
+    public class ErrorMsgs
+    {
+        /// <summary>
+        /// 错误说明与含义列表
+        /// </summary>
+        public static readonly Dictionary<string, string> Map = new Dictionary<string, string>()
+        {
+            {"HTTP_BAD_REQUEST", "请求不合法，包体格式错误"},
+            {"HTTP_UNAUTHORIZED", "权限验证失败"},
+            {"HTTP_FORBIDDEN", "鉴权信息不合法，禁止访问"},
+            {"HTTP_NOTFOUND", "请求失败"},
+            {"HTTP_REQ_NOLENGTH", "请求没有指定ContentLength"},
+            {"HTTP_REQUEST_LARGE", "请求包体太大"},
+            {"HTTP_SERVER_NOTFOUND", "请求的服务没有找到"},
+            {"HTTP_METHOD_NOTFOUND", "请求的方法没有找到"},
+            {"HTTP_REQUEST_OVERFLOW", "请求包体太大"},
+            {"HTTP_TOO_MANY_REQUEST", "请求超过频率限制"},
+            {"HTTP_INTERNAL_SERVER_ERROR", "服务内部错误"},
+            {"HTTP_BAD_GETWAT", "网关错误，计算后台服务不可用"},
+            {"HTTP_SERVICE_UNAVAILABLE", "服务不可用"},
+            {"HTTP_GATEWAY_TIME_OUT", "后端服务超时"},
+            {"SDK_DISTANCE_ERROR", "相似度错误"},
+            {"SDK_IMAGE_FACEDETECT_FAILED", "人脸检测失败"},
+            {"SDK_IMAGE_DECODE_FAILED", "图片解码失败"},
+            {"SDK_FEAT_PROCESSFAILED", "特征处理失败"},
+            {"SDK_FACE_SHAPE_FAILED", "提取轮廓错误"},
+            {"SDK_FACE_GENDER_FAILED", "提取性别错误"},
+            {"SDK_FACE_EXPRESSION_FAILED", "提取表情错误"},
+            {"SDK_FACE_AGE_FAILED", "提取年龄错误"},
+            {"SDK_FACE_POSE_FAILED", "提取姿态错误"},
+            {"SDK_FACE_GLASS_FAILED", "提取眼镜错误"},
+            {"SDK_FACE_BEAUTY_FAILED", "提取魅力值错误"},
+            {"TTS_PROCESS_FAILED", "语音合成失败"},
+            {"STORAGE_ERROR", "存储错误"},
+            {"CACHE_ERROR", "缓存错误"},
+            {"ERROR_IMAGE_EMPTY", "图片为空"},
+            {"ERROR_PARAMETER_EMPTY", "参数为空"},
+            {"ERROR_PERSON_EXISTED", "个体已存在"},
+            {"ERROR_PERSON_NOT_EXISTED", "个体不存在"},
+            {"ERROR_PARAMETER_TOO_LONG", "参数过长"},
+            {"ERROR_FACE_NOT_EXISTED", "人脸不存在"},
+            {"ERROR_GROUP_NOT_EXISTED", "组不存在"},
+            {"ERROR_GROUPLIST_NOT_EXISTED", "组列表不存在"},
+            {"ERROR_DOWNLOAD_IMAGE_FAILED", "url图片下载失败"},
+            {"ERROR_FACE_NUM_EXCEED", "人脸个数超过限制"},
+            {"ERROR_PERSON_NUM_EXCEED", "个体个数超过限制"},
+            {"ERROR_GROUP_NUM_EXCEED", "组个数超过限制"},
+            {"ERROR_SAME_FACE_ADDED", "对个体添加了几乎相同的人脸"},
+            {"ERROR_PARAMETER_INVALID", "参数不合法（特殊字符比如空格、斜线、tab、换行符）"},
+            {"ERROR_IMAGE_FORMAT_INVALID", "无效的图片格式"},
+            {"ERROR_IMAGE_FUZZY_DETECT_FAILED", "图片模糊度检测失败"},
+            {"ERROR_IMAGE_FOOD_DETECT_FAILED", "美食图片检测失败"},
+            {"ERROR_IMAGE_DOWNLOAD_FAILED", "图片下载失败"},
+            {"ERROR_IMAGE_CLASSIFY_FAILED", "算法模型调用错误"},
+            {"ERROR_IMAGE_FINGERPRINT_FAILED", "提取图像指纹失败"},
+            {"ERROR_IMAGE_COMPARE_FAILED", "图像特征比对失败"},
+            {"ERROR_DOWNLOAD_IMAGE_SIZE_EXCEED", "图片超出下载限制"},
+            {"ERROR_IMAGE_UNSATISFACTORY", "图片不满足检测要求"},
+            {"ERROR_IVADLID_URL_FROMAT", "图像请求URL的格式错误"},
+            {"ERROR_DOWNLOAD_TIMEOUT", "图像下载超时"},
+            {"ERROR_CONNECT_DOWNLOAD_SERVER", "无法连接图像下载服务器"},
+            {"TEXT_EMPTY", "文本为空"},
+            {"TEXT_TOO_LONG", "文本过长"},
+            {"OCR_BUF_EMPTY", "OCR照片为空"},
+            {"OCR_RECOG_FAILED", "OCR识别失败"},
+            {"OCR_CORNER_INCOMPLETE", "身份证边框不完整"},
+            {"OCR_NOT_IDCARD", "输入图片不是身份证"},
+            {"OCR_IDCARD_ILLEGAL", "身份证信息不合规范"},
+            {"OCR_IMAGE_BLUR", "照片模糊"},
+            {"OCR_NOT_ENOUGH_TEXTLINES", "名片无足够文本"},
+            {"OCR_TEXTLINES_SKEWED", "名片文本行倾斜角度太大"},
+            {"OCR_TEXTLINES_FUZZY", "名片模糊"},
+            {"OCR_UNRECOG_NAME", "名片姓名识别失败"},
+            {"OCR_UNRECOG_TEL", "名片电话识别失败"},
+            {"OCR_NOT_A_NAMECARD", "图像为非名片图像"},
+            {"DETECT_AND_RECONG_FAILED", "检测或者识别失败"},
+            {"OCR_SERVER_INTERN_ERROR", "服务内部错误"},
+            {"NOT_CARD", "未检测到身份证，请对准边框(请避免拍摄时倾角和旋转角过大、摄像头)"},
+            {"NOT_SECOND_IDCARD", "请使用第二代身份证件进行扫描"},
+            {"NOT_FRONT_IDCARD", "不是身份证正面照片(请使用带证件照的一面进行扫描)"},
+            {"NOT_BACK_IDCARD", "不是身份证反面照片(请使用身份证反面进行扫描)"},
+            {"IDCARD_FUZZY", "确保扫描证件图像清晰"},
+            {"IDCARD_LIGHT_NOT_BLANCE", "请避开灯光直射在证件表面"},
+            {"DLOCR_WRONG_TYPE_INPUT", "请求type错误，不是0，1"},
+            {"DLOCR_RECONG_FAILED", "OCR识别失败"},
+            {"GLOCR_RECONG_FAILED", "OCR识别失败"},
+            {"CREDITCARD_OCR_PREPROCESS_ERROR", "银行卡OCR预处理错误"},
+            {"CREDITCARD_OCR_RECOG_FAILED", "银行卡OCR识别失败"},
+            {"CREDITCARD_OCR_IMAGE_BLUR", "银行卡图片模糊"},
+            {"ERROR_NOT_A_CREDITCARD", "不是银行卡"},
+            {"ERROR_CREDITCARD_ILLEGAL", "卡号为空或不符合规范"},
+            {"BIZLICENSE_OCR_PREPROCESS_FAILED", "营业执照OCR"},
+            {"BIZLICENSE_OCR_RECOG_FAILED", "营业执照OCR"},
+            {"PLATE_OCR_PREPROCESS_ERROR", "车牌OCR预处理错误"},
+            {"PLATE_OCR_RECOG_FAILED", "车牌OCR识别失败"},
+        };
+    }
+}

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata schemaVersion="2">
     <id>TencentSDK.YoutuYun</id>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <title>TencentSDK.YoutuYun</title>
     <authors>arbing</authors>
     <owners>arbing</owners>
@@ -13,6 +13,7 @@
     <description>腾讯优图API SDK</description>
     <summary>腾讯优图API SDK</summary>
     <releaseNotes>
+      1.0.2 返回错误描述优化
       1.0.1 返回错误码优化
       1.0.0 实现接口：通用文字识别
     </releaseNotes>
