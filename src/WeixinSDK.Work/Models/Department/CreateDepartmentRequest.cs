@@ -18,11 +18,11 @@
         /// <summary>
         /// 在父部门中的次序值。order值大的排序靠前。有效的值范围是[0, 2^32)
         /// </summary>
-        public uint order { get; set; }
+        public uint? order { get; set; }
 
         /// <summary>
         /// 部门id，整型。指定时必须大于1，否则自动生成
         /// </summary>
-        public int id { get; set; }
+        public int? id { get; set; }
     }
 }
